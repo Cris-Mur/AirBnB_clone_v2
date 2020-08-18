@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Set-up web server
+# Set-up web server update server, install nginx make dirs set initial html
 # Update system
 sudo apt-get update -y
 sudo apt-get upgrade -y
@@ -16,5 +16,7 @@ sudo ln -sf /data/web_static/releases/test/ /data/web_static/current
 # user and group
 sudo chown -R ubuntu:ubuntu /data
 # Nginx setup
-sudo sed -i '/listen 80 default_server;/a location /hbnb_static/ { alias /data/web_static/current/; }' /etc/nginx/sites-available/default
+THING='\tlocation /hbnb_static/ {\n\t\talias /data/web_static/current/;\n\t}\n'
+sudo sed -i "33 a $THING" /etc/nginx/sites-available/default
+sudo nginx -t
 sudo service nginx restart
