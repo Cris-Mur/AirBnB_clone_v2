@@ -1,4 +1,4 @@
-#!/usr/env bash
+#!/usr/bin/env bash
 # Set-up web server
 # Update system
 sudo apt-get update -y
