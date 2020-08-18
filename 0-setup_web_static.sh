@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 # Set-up web server update server, install nginx make dirs set initial html
 # Update system
-sudo apt-get update -y
-sudo apt-get upgrade -y
+sudo apt-get -y update
+sudo apt-get -y upgrade
 # Install web server
-sudo apt-get install nginx
+sudo apt-get -y install nginx
 # Create Dirs
 sudo mkdir -p /data/web_static/shared/
 sudo mkdir -p /data/web_static/releases/test/
