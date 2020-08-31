@@ -11,11 +11,10 @@ sudo mkdir /data/web_static/shared/
 # fake index.html
 echo "Holberton School" | sudo tee /data/web_static/releases/test/index.html
 # simbolic link
-sudo ln -sf /data/web_static/releases/test/ /data/web_static/current
+ln -sf /data/web_static/releases/test/ /data/web_static/current
 # user and group
 sudo chown -R ubuntu:ubuntu /data/
 # Nginx setup
-THING='\tlocation /hbnb_static/ {\n\t\talias /data/web_static/current; \n\t}\n'
-sudo sed -i "33i $THING" /etc/nginx/sites-available/default
-sudo nginx -t
-sudo service nginx restart
+THING='\tlocation /hbnb_static/ {\n\t\talias /data/web_static/current;\n\t\tautoindex off;\n\t}\n'
+sudo sed -i "38i\$THING" /etc/nginx/sites-available/default
+sudo service nginx start
