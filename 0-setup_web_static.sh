@@ -16,5 +16,5 @@ ln -sf /data/web_static/releases/test/ /data/web_static/current
 sudo chown -R ubuntu:ubuntu /data/
 # Nginx setup
 THING='\tlocation /hbnb_static/ {\n\t\talias /data/web_static/current;\n\t\tautoindex off;\n\t}\n'
-sudo sed -i "38i\$THING" /etc/nginx/sites-available/default
+sudo sed -i "38i $THING" /etc/nginx/sites-available/default
 sudo service nginx start
