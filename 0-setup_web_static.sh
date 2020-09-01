@@ -9,11 +9,11 @@ sudo apt-get -y install nginx
 sudo mkdir -p /data/web_static/releases/test/
 sudo mkdir /data/web_static/shared
 # fake index.html
-echo "Holberton School" > /data/web_static/releases/test/index.html
+echo "Holberton School" | sudo tee /data/web_static/releases/test/index.html
 # simbolic link
-ln -sf /data/web_static/releases/test /data/web_static/current
+sudo ln -sf /data/web_static/releases/test /data/web_static/current
 # user and group
 sudo chown -R ubuntu:ubuntu /data/
 # Nginx setup
-sudo sed -i "38i\\tlocation /hbnb_static/ {\n\t\talias /data/web_static/current;\n\t\tautoindex off;\n\t}\n" /etc/nginx/sites-available/default
+sudo sed -i "38i\ \tlocation /hbnb_static/ {\n\t\talias /data/web_static/current;\n\t\tautoindex off;\n\t}\n" /etc/nginx/sites-available/default
 sudo service nginx start
