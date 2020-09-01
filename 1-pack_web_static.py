@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-'''
-create zip of web_static folder in .tgz
-'''
+
 import os
 from fabric.api import local
 from datetime import datetime
