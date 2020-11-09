@@ -1,14 +1,14 @@
 #!/usr/bin/python3
-''' Script that starts flaks web application '''
+""" Run a Flask application
+"""
 
 from flask import Flask
-
 app = Flask(__name__)
 
 
 @app.route('/', strict_slashes=False)
-def index():
-    '''This return string in the page'''
+def hello_hbnb():
+    ''' Hello flask '''
     return 'Hello HBNB!'
 
 

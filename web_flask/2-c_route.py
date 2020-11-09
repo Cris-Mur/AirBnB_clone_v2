@@ -1,26 +1,33 @@
 #!/usr/bin/python3
-'''This function is for edit html'''
-from flask import Flask
+""" Flask web application
+"""
 
+from flask import Flask
 app = Flask(__name__)
 
 
 @app.route('/', strict_slashes=False)
-def index():
-    '''This return string in the page'''
-    return 'HBNB'
+def greetings():
+    """ Hello function
+    """
 
-
-@app.route('/hbnb', strict_slashes=False)
-def index_hbnb():
-    '''This return string in the page'''
     return 'Hello HBNB!'
 
 
-@app.route('/c/<text>', strict_slashes=False)
-def index_c(text):
-    '''This is return string pass in text'''
-    return 'C {}'.format(text.replace('_', ' '))
+@app.route('/hbnb', strict_slashes=False)
+def hbnb():
+    """ hbnb direction
+    """
+
+    return 'HBNB'
+
+
+@app.route('/c/<txt>', strict_slashes=False)
+def c_route(txt):
+    """ String with C as first char
+    """
+
+    return "C {}".format(txt.replace('_', ' '))
 
 
 if __name__ == '__main__':

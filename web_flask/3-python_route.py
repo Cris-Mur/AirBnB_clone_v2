@@ -1,34 +1,43 @@
 #!/usr/bin/python3
-'''This function is for edit html'''
+""" Flask web application
+"""
+
 from flask import Flask
-
-
 app = Flask(__name__)
 
 
 @app.route('/', strict_slashes=False)
-def index():
-    '''This return string in the page'''
+def greetings():
+    """ Hello function
+    """
+
     return 'Hello HBNB!'
 
 
 @app.route('/hbnb', strict_slashes=False)
-def index_hbnb():
-    '''This return string in the page'''
+def hbnb():
+    """ hbnb direction
+    """
+
     return 'HBNB'
 
 
-@app.route('/c/<text>', strict_slashes=False)
-def index_c(text):
-    '''This is return string pass in text'''
-    return 'C {}'.format(text.replace('_', ' '))
+@app.route('/c/<txt>', strict_slashes=False)
+def c_route(txt):
+    """ String with C as first char
+    """
+
+    return "C {}".format(txt.replace('_', ' '))
 
 
-@app.route('/python/', strict_slashes=False)
-@app.route('/python/<text>', strict_slashes=False)
-def index_python(text='is cool'):
-    '''Python (text)'''
-    return 'Python {}'.format(text.replace('_', ' '))
+@app.route('/python', strict_slashes=False)
+@app.route('/python/<txt>', strict_slashes=False)
+def python_route(txt='is cool'):
+    """ String with C as first char
+    """
+
+    return "Python {}".format(txt.replace('_', ' '))
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
